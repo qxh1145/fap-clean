@@ -8,9 +8,13 @@ Dùng trên máy tính với Chrome, Brave, Edge hoặc trình duyệt nhân Chr
 
 > Không chính thức. FAP Clean không liên kết và không được FPT Education hay Trường Đại học FPT xác nhận.
 
-![Trang chủ](docs/screenshots/01-trang-chu.png)
+## Xem giới thiệu (20 giây)
+
+https://github.com/user-attachments/assets/4c99f9b0-adc5-462b-9822-75ea509cdd78
 
 ## Tính năng
+
+![Trang chủ](docs/screenshots/01-trang-chu.png)
 
 **Trang chủ có lịch hôm nay.** Các buổi học nằm trên thanh thời gian, có vạch "Bây giờ" chạy theo giờ thật. Buổi đang học được tô cam, buổi đã qua làm mờ. Lớp trực tuyến có nút mở Google Meet. Hôm nào không có lớp thì hiện buổi học tiếp theo.
 
@@ -38,6 +42,12 @@ Dùng trên máy tính với Chrome, Brave, Edge hoặc trình duyệt nhân Chr
 ## Cài đặt
 
 FAP Clean chưa có trên Chrome Web Store, nên bạn cài bằng tay theo 6 bước dưới đây. Không cần biết lập trình, chỉ cần làm đúng thứ tự.
+
+### Xem video hướng dẫn cài (27 giây)
+
+https://github.com/user-attachments/assets/5778e9ba-b53d-4676-85aa-001450fbcd5b
+
+Trong video, file được tải bằng nút **Code → Download ZIP** nên thư mục có tên `fap-clean-main`. Nếu bạn tải bằng nút **⬇ Tải FAP Clean** ở đầu trang thì thư mục tên là `FAP-Clean`. Các bước còn lại giống hệt nhau, cách nào cũng được.
 
 ### Bước 1. Tải file
 
