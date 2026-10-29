@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAP Clean</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <img src="../icons/icon-32.png" width="24" height="24" alt="">
+    <div>
+      <h1>FAP Clean</h1>
+      <p class="sub" id="status-text">Đang bật trên fap.fpt.edu.vn</p>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="enabled" checked aria-describedby="status-text">
+      <span class="track" aria-hidden="true"></span>
+      <span class="sr">Bật giao diện mới</span>
+    </label>
+  </header>
+
+  <main id="options">
+    <fieldset>
+      <legend>Giao diện</legend>
+      <div class="seg" role="radiogroup">
+        <label><input type="radio" name="theme" value="system" checked><span>Theo máy</span></label>
+        <label><input type="radio" name="theme" value="light"><span>Sáng</span></label>
+        <label><input type="radio" name="theme" value="dark"><span>Tối</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ngôn ngữ của tiện ích</legend>
+      <div class="seg" role="radiogroup">
+        <label><input type="radio" name="lang" value="auto" checked><span>Theo FAP</span></label>
+        <label><input type="radio" name="lang" value="vi"><span>Tiếng Việt</span></label>
+        <label><input type="radio" name="lang" value="en"><span>English</span></label>
+      </div>
+    </fieldset>
+
+    <p class="tip">Nhấn <kbd id="kbd">Ctrl K</kbd> trên FAP để tìm nhanh một trang.</p>
+  </main>
+
+  <footer class="foot">
+    <a href="https://fap.fpt.edu.vn/" target="_blank" rel="noopener">Mở FAP</a>
+    <span>Không thu thập dữ liệu</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
