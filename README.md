@@ -154,10 +154,10 @@ styles/fonts.css         khai báo font Be Vietnam Pro
 popup/                   popup bật/tắt và cài đặt
 fonts/                   Be Vietnam Pro (SIL Open Font License 1.1)
 docs/                    ảnh chụp, hướng dẫn cài đi kèm bản phát hành
-.github/workflows/       tự đóng gói FAP-Clean.zip khi đẩy tag
+.github/workflows/       tự đóng gói FAP-Clean.zip khi publish release
 ```
 
 - Mọi CSS nằm dưới class `html.fapx`, và mọi phần chèn vào trang mang class `fx-injected`. Nhờ vậy khi tắt, tiện ích gỡ sạch và không đè lên Bootstrap của FAP.
-- **Phát hành bản mới:** tăng `version` trong `manifest.json`, commit, rồi chạy `git tag v1.0.1 && git push origin v1.0.1`. GitHub Actions sẽ kiểm tra version khớp tag, đóng gói `FAP-Clean.zip` và tạo release.
+- **Phát hành bản mới:** tăng `version` trong `manifest.json` rồi push lên `main`. Sau đó vào **Releases → Draft a new release**, tạo tag `v` + version (ví dụ `v1.0.1`) và bấm **Publish release**. GitHub Actions sẽ kiểm tra version khớp tag, đóng gói `FAP-Clean.zip`, đính kèm vào release và điền ghi chú phát hành.
 
 Font Be Vietnam Pro theo [SIL Open Font License 1.1](fonts/OFL-LICENSE.txt).

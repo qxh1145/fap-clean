@@ -1,27 +1,42 @@
-# Đóng gói và phát hành khi đẩy tag dạng v1.2.3
-#   git tag v1.0.1 && git push origin v1.0.1
-# Version trong manifest.json phải khớp với tag.
+# Tự đóng gói FAP-Clean.zip và đính kèm vào release.
+#
+# Cách phát hành bản mới:
+#   1. Tăng "version" trong manifest.json (ví dụ 1.0.1), commit và push lên main.
+#   2. Trên GitHub: Releases → Draft a new release → tag v1.0.1 → Publish release.
+#   Workflow này chạy khi release được publish: kiểm tra version khớp tag,
+#   đóng gói, đính kèm FAP-Clean.zip và điền ghi chú phát hành.
+#
+# Có thể chạy lại tay cho một release đã có: Actions → Release → Run workflow.
 name: Release
 
 on:
-  push:
-    tags: ["v*"]
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag của release cần đóng gói lại (ví dụ v1.0.0)"
+        required: true
 
 permissions:
   contents: write
 
 jobs:
-  release:
+  package:
     runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
 
       - name: Kiểm tra version khớp tag
         run: |
           manifest_version=$(jq -r .version manifest.json)
-          tag_version="${GITHUB_REF_NAME#v}"
-          if [ "$manifest_version" != "$tag_version" ]; then
-            echo "::error::manifest.json là $manifest_version nhưng tag là $tag_version"
+          if [ "$manifest_version" != "${TAG#v}" ]; then
+            echo "::error::manifest.json là $manifest_version nhưng tag là $TAG. Sửa version rồi tạo lại release."
             exit 1
           fi
 
@@ -35,16 +50,13 @@ jobs:
         run: |
           mkdir -p dist/FAP-Clean
           cp -r manifest.json _locales fonts icons popup src styles PRIVACY.md dist/FAP-Clean/
-          cp docs/HUONG-DAN-CAI.txt "dist/FAP-Clean/HUONG-DAN-CAI.txt"
+          cp docs/HUONG-DAN-CAI.txt dist/FAP-Clean/HUONG-DAN-CAI.txt
           cd dist
           zip -r -X FAP-Clean.zip FAP-Clean
           unzip -l FAP-Clean.zip
 
-      - name: Tạo release
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Đính kèm vào release và điền ghi chú
         run: |
-          sed "s/{{VERSION}}/${GITHUB_REF_NAME}/g" .github/release-notes.md > dist/notes.md
-          gh release create "$GITHUB_REF_NAME" dist/FAP-Clean.zip \
-            --title "FAP Clean ${GITHUB_REF_NAME}" \
-            --notes-file dist/notes.md
+          sed "s/{{VERSION}}/${TAG}/g" .github/release-notes.md > dist/notes.md
+          gh release upload "$TAG" dist/FAP-Clean.zip --clobber
+          gh release edit "$TAG" --title "FAP Clean ${TAG}" --notes-file dist/notes.md
