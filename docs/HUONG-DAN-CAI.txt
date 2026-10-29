@@ -1,0 +1,42 @@
+FAP CLEAN – HƯỚNG DẪN CÀI ĐẶT
+==============================
+
+Hướng dẫn có hình và cách xử lý lỗi: https://github.com/qxh1145/fap-clean#cài-đặt
+
+1. GIẢI NÉN VÀ CẤT THƯ MỤC
+   - Bạn đang mở file này tức là đã giải nén xong.
+   - Chuyển cả thư mục "FAP-Clean" (thư mục chứa file này) vào chỗ cố định,
+     ví dụ thư mục Documents (Tài liệu).
+   - Đừng xoá hay đổi tên thư mục này sau khi cài. Xoá thư mục là tiện ích biến mất.
+
+2. MỞ TRANG TIỆN ÍCH CỦA TRÌNH DUYỆT
+   Gõ vào thanh địa chỉ rồi nhấn Enter:
+     Chrome:  chrome://extensions
+     Brave:   brave://extensions
+     Edge:    edge://extensions
+
+3. BẬT "DEVELOPER MODE" (CHẾ ĐỘ DÀNH CHO NHÀ PHÁT TRIỂN)
+   - Chrome, Brave: công tắc ở góc trên bên phải.
+   - Edge: công tắc ở cột bên trái.
+
+4. BẤM "LOAD UNPACKED" (TẢI TIỆN ÍCH ĐÃ GIẢI NÉN)
+   - Nút này hiện ra sau khi bật bước 3.
+   - Chọn thư mục "FAP-Clean" (thư mục có file manifest.json) rồi bấm Select / Chọn.
+
+5. MỞ FAP
+   - Vào https://fap.fpt.edu.vn (đã mở sẵn thì tải lại trang).
+   - Nhấn Ctrl + K (máy Mac: Cmd + K) để tìm nhanh một trang.
+
+BẬT/TẮT
+   Bấm biểu tượng mảnh ghép trên thanh công cụ, chọn FAP Clean, gạt công tắc.
+   Khi tắt, FAP trở về giao diện gốc.
+
+CẬP NHẬT BẢN MỚI
+   Tải FAP-Clean.zip mới, giải nén, chép đè các file vào thư mục cũ,
+   rồi bấm nút tải lại (mũi tên vòng) ở FAP Clean trong trang tiện ích.
+
+GỠ BỎ
+   Vào trang tiện ích, bấm "Remove" (Xoá) ở FAP Clean, rồi xoá thư mục.
+
+FAP Clean là tiện ích không chính thức, không liên kết với FPT Education.
+Tiện ích không thu thập và không gửi dữ liệu của bạn đi đâu.
